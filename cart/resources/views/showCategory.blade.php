@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Insert Category</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,8 @@
                 font-family: 'Nunito';
             }
         </style>
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -37,22 +39,21 @@
             @endif
 
             <div>
-                <div style="text-align:center"> 
-                    <form method="post" action="{{ route('addCategory') }}" enctype="multipart/form-data">
-                    @csrf <!-- very important if you didn't insert CSRF, it not allow submit the data-->
-                    <p>
-                        <label for="ID" class="label">Category ID</label>
-                        <input type="text" name="ID" id="ID">
-                    </p>
-                    <p>
-                        <label for="name" class="label">Name</label>
-                        <input type="text" name="name" id="name">
-                    </p>
-                    <p>
-                        <input type="submit" name="insert" value="Insert">
-                    </p>
-                    </form>
-                </div>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Action</td>
+                    </tr>
+
+                    @foreach($categories as $category)
+                    <tr>
+                        <td>{{$category->id}}</td>
+                        <td>{{$category->name}}</td>
+                        <td><a href="{{ route('deleteCategory', ['id' => $category->id]) }}" class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a></td>                      
+                    </tr>
+                    @endforeach
+                </table>
             </div>
             
         </div>
