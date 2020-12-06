@@ -2,7 +2,7 @@
 @section('content')
 
             <div>
-                <div class="row" style="text-align:center"> 
+                <div style="text-align:center"> 
                     <form class="form-group" method="post" action="{{ route('updateProduct') }}" enctype="multipart/form-data">
                     @csrf <!-- very important if you didn't insert CSRF, it not allow submit the data-->
                     <p>
