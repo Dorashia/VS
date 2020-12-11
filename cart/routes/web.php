@@ -45,6 +45,18 @@ Route::post('/updateProduct', [App\Http\Controllers\ProductController::class, 'u
 
 Route::post('/searchProduct', [App\Http\Controllers\ProductController::class, 'search'])->name('search.product');
 
+//customer product view page-----------------------------------------------------------
+
+Route::get('/viewProduct', [App\Http\Controllers\ProductController::class, 'customerView'])->name('customerProductView');
+
+Route::post('/customerSearchProduct', [App\Http\Controllers\ProductController::class, 'customerSearch'])->name('customerSearch.product');
+
+//------------------------------------------------------------------------------------- 
+
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'showProducts'])->name('products');
+
+Route::get('/product_detail/{id}', [App\Http\Controllers\ProductController::class, 'showProductDetail'])->name('product.detail');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

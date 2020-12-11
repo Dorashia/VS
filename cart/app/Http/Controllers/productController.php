@@ -86,4 +86,39 @@ class productController extends Controller
         return view('showProduct')->with('products',$products);
 
     }
+
+    //------------------------customer product view page--------------------------
+    public function customerView() {
+        $products=Product::paginate(3);
+        return view('customerProductView')->with('products',$products);
+    }
+
+    public function customerSearch(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchProduct;
+        $products =DB::table('products')
+        ->leftjoin('categories', 'categories.id', '=', 'products.categoryID')
+        ->select('categories.name as catname','categories.id as catid','products.*')
+        ->where('products.name', 'like', '%' . $keyword . '%')
+        ->orWhere('products.description', 'like', '%' . $keyword . '%')   
+        //->get();
+        ->paginate(3);
+
+        return view('customerProductView')->with('products',$products);
+    }
+    //-------------------------------------------------------------------------- 
+
+    public function showProducts(){
+        $products=Product::paginate(12);
+        
+        return view('products')->with('products',$products);
+    }
+
+    public function showProductDetail($id) {
+        $products=Product::all()->where('id',$id);
+        //select * from products where id='$id'
+        return view('productDetail')->with('products',$products)
+                                  ->with('categories',Category::all());
+    }
+    
 }
