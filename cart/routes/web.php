@@ -57,6 +57,12 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'showPro
 
 Route::get('/product_detail/{id}', [App\Http\Controllers\ProductController::class, 'showProductDetail'])->name('product.detail');
 
+Route::post('/addToCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
+
+Route::get('/myCart', [App\Http\Controllers\CartController::class, 'show'])->name('my.cart');
+
+Route::get('/showMyCart',[App\Http\Controllers\CartController::class, 'showMyCart'])->name('show.myCart');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
