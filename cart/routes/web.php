@@ -63,6 +63,12 @@ Route::get('/myCart', [App\Http\Controllers\CartController::class, 'show'])->nam
 
 Route::get('/showMyCart',[App\Http\Controllers\CartController::class, 'showMyCart'])->name('show.myCart');
 
+Route::post('/createOrder',[App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
+
+//delete order-------------------------------------------------------------------------------
+Route::get('/deleteItem/{id}', [App\Http\Controllers\CartController::class, 'deleteItem'])->name('deleteItem');
+//------------------------------------------------------------------------------------------- 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
