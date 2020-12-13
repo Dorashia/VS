@@ -32,7 +32,7 @@ class CartController extends Controller
     public function showMyCart() {
         $carts=DB::table('my_carts')
         ->leftjoin('products', 'products.id', '=', 'my_carts.productID')
-        ->select('my_carts.quantity as cartQty','my_carts.productID as productID','products.*')
+        ->select('my_carts.quantity as cartQty','my_carts.id as cartID','products.*')
         ->where('my_carts.orderID','=','') //have not make payment
         ->where('my_carts.userID','=',Auth::id())
         ->paginate(12);
@@ -41,8 +41,8 @@ class CartController extends Controller
     }
 
     public function deleteItem($id) {
-        $items=MyCart::find($id);
-        $items->delete();
+        $carts=MyCart::find($id);
+        $carts->delete();
         return redirect()->route('show.myCart');
     }
 
