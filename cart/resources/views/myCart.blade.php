@@ -8,11 +8,12 @@ function CalculateTotal() {
 	
 	var total=0;
 	
-	var cboxes = document.getElementsByName('item[]');    
-	var len = cboxes.length;	    
-	for (var i=0; i<len; i++) {        
-		if(cboxes[i].checked){	//calculate if checked		
-			total=parseFloat(prices[i].value)+parseFloat(total);	}					
+	var checkboxes = document.getElementsByName('item[]');    
+	var boxLength = checkboxes.length;	    
+	for (var i=0; i<boxLength; i++) {        
+		if(checkboxes[i].checked){	//calculate if checked		
+			total=parseFloat(prices[i].value)+parseFloat(total);	
+        }					
 	}
 	
 	

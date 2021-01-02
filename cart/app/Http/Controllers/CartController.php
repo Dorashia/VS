@@ -40,10 +40,12 @@ class CartController extends Controller
         return view('myCart')->with('carts',$carts);
     }
 
+    //delete item-------------------------------------------------------------------------------
     public function deleteItem($id) {
         $carts=MyCart::find($id);
         $carts->delete();
         return redirect()->route('show.myCart');
     }
+    //------------------------------------------------------------------------------------------- 
 
 }

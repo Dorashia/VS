@@ -65,7 +65,7 @@ Route::get('/showMyCart',[App\Http\Controllers\CartController::class, 'showMyCar
 
 Route::post('/createOrder',[App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
 
-//delete order-------------------------------------------------------------------------------
+//delete item-------------------------------------------------------------------------------
 Route::get('/deleteItem/{id}', [App\Http\Controllers\CartController::class, 'deleteItem'])->name('deleteItem');
 //------------------------------------------------------------------------------------------- 
 
