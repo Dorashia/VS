@@ -1,0 +1,70 @@
+main {
+    background-image: linear-gradient(rgba(248, 248, 248, 0.795),rgba(224, 224, 224, 0.796)),url("/images/light-blue-poly-background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: #323842;
+}
+
+h1 {
+    margin: 20px;
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    color: rgb(78, 81, 85);
+}
+
+form {
+    width: 80%;
+    margin: auto;
+}
+
+label {
+    color: rgb(72, 77, 90);
+    font-family: 'Catamaran', sans-serif;
+}
+
+input,textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 500px; 
+    color: #333638;
+}
+
+input {
+    height: 40px;
+}
+
+textarea#description {
+    height: 200px;
+}
+
+input,select#category,textarea,input#product-image-input {
+    background-color: rgba(255, 255, 255, 0.548);
+}
+
+input#price, input#ID {
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}   
+
+select#category, input#product-image-input {
+    width: 500px;
+    margin: auto;
+}
+
+#submit-button {
+    width: 100px;
+    margin: 20px;
+    color: white;
+    background-color: rgb(78, 81, 85);
+    padding: 0px;
+}
+
+#submit-button:hover {
+    background-color: rgba(62, 62, 63, 0.336);
+}

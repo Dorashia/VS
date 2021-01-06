@@ -18,13 +18,13 @@ class CategoryController extends Controller
     }
 
     public function show() {
-        $categories=Category::all();
+        $categories=Category::paginate(3);
         return view('showCategory')->with('categories',$categories);
     }
 
-    public function delete($id){
+    public function delete($id) {
         $categories=Category::find($id);
-        $categories->delete(); 
+        $categories->delete();
         return redirect()->route('showCategory');
     }
 }
